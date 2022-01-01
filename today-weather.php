@@ -9,11 +9,11 @@ $weather = json_decode($response, true);
 $text = array(
     date("Y/m/d"),
     $weather['title'],
-    $weather['forecasts'][0]['telop'],
+    get_weather($weather, 0),
     "最高気温：".$weather['forecasts'][0]['temperature']['max']['celsius']."度",
     "----",
     date("Y/m/d", strtotime("+1 day")),
-    $weather['forecasts'][1]['telop'],
+    get_weather($weather, 1),
     "最高気温：".$weather['forecasts'][1]['temperature']['max']['celsius']."度",
     "最低気温：".$weather['forecasts'][1]['temperature']['min']['celsius']."度",
 );
@@ -37,3 +37,18 @@ $context = array(
 );
 
 $html = file_get_contents($url, false, stream_context_create($context));
+
+/**
+ * 天気を返す ex:晴れのち曇
+ * 
+ * @param array $weather 天気APIからの返り値
+ * @param int $index 添え字 ex：今日=0、明日=1、明後日=2
+ * @return string 添え字で指定した日の天気
+ */
+function get_weather($weather, $index) {
+    if ($index > 3) {
+        return null;
+    }
+
+    return $weather['forecasts'][$index]['telop'];
+}
