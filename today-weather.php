@@ -10,7 +10,12 @@ $text = array(
     date("Y/m/d"),
     $weather['title'],
     $weather['forecasts'][0]['telop'],
-    "予想最高気温：".$weather['forecasts'][0]['temperature']['max']['celsius']."度"
+    "最高気温：".$weather['forecasts'][0]['temperature']['max']['celsius']."度",
+    "----",
+    date("Y/m/d", strtotime("+1 day")),
+    $weather['forecasts'][1]['telop'],
+    "最高気温：".$weather['forecasts'][1]['temperature']['max']['celsius']."度",
+    "最低気温：".$weather['forecasts'][1]['temperature']['min']['celsius']."度",
 );
 
 // SlackにPOSTリクエスト送信
