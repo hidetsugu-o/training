@@ -38,6 +38,12 @@ $context = array(
 
 $html = file_get_contents($url, false, stream_context_create($context));
 
+$res = json_decode($html, true);
+if (!$res['ok']) {
+    echo 'post failed...';
+}
+echo 'post succeed!';
+
 /**
  * 天気を返す ex:晴れのち曇
  * 
