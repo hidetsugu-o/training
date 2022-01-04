@@ -41,6 +41,7 @@ $html = file_get_contents($url, false, stream_context_create($context));
 $res = json_decode($html, true);
 if (!$res['ok']) {
     echo 'post failed...';
+    return;
 }
 echo 'post succeed!';
 
