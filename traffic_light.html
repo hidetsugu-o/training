@@ -6,14 +6,31 @@
     <title>traffic_light</title>
 </head>
 <body>
+    <h1 id="title">タイトル1</h1>
+
+    <div id="parent">
+        <p id="element1">エレメント1</p>
+        <p id="element2">エレメント2</p>
+    </div>
+
+    <button onclick="func.changeTitle()">タイトル変更ボタン</button>
+
     <script>
         console.clear()
-        const traffic_light = {
-            blue: "go fast",
-            yellow: "slow down",
-            red: "stop"
-        };
-        console.info(traffic_light.blue);
+
+        const func = {
+            changeTitle : () => {
+                const h1 = document.getElementById("title")
+                h1.textContent = "JSで表示を変えちゃうよ"
+            }
+        }
+
+        const p = document.createElement("p")
+        p.textContent = "エレメント3"
+        console.log(p)
+        
+        const parent = document.getElementById("parent")
+        parent.appendChild(p)
     </script>
 </body>
 </html>
