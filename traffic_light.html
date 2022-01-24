@@ -13,6 +13,7 @@
         <p id="element2">エレメント2</p>
     </div>
 
+    <input type="text" id="message"></input>
     <button onclick="func.changeTitle()">タイトル変更ボタン</button>
 
     <script>
@@ -21,7 +22,8 @@
         const func = {
             changeTitle : () => {
                 const h1 = document.getElementById("title")
-                h1.textContent = "JSで表示を変えちゃうよ"
+                const msg = document.getElementById("message")
+                h1.textContent = msg.value
             }
         }
 
