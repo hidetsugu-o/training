@@ -4,7 +4,7 @@ var trapCard = function() {
 };
 
 var sacrificeCard = function(sacrificeName) {
-    console.log(sacrificeName + 'を生贄にするぜ！');
+    console.log(sacrificeName + 'を召喚するぜ！');
 };
 
 // 俺のターン！と表示してから、引数を実行する関数
