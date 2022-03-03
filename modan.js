@@ -11,3 +11,6 @@ console.log(two);
 
 const demo = (two) => console.log("demoだよ", two);
 demo(two);
+
+const demo2 = (men) => men.map((name) => console.log(name));
+demo2(men);
